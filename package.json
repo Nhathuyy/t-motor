@@ -1,0 +1,16 @@
+{
+  "name": "thue-xe-motor-dalat",
+  "version": "1.0.0",
+  "description": "Thuê xe motor Đà Lạt - Dịch vụ cho thuê xe máy uy tín tại Đà Lạt",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["thuê xe", "cho thuê xe máy", "đà lạt", "motor", "xe máy đà lạt"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
