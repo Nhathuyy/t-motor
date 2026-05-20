@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T-MOTOR - Chọn chi nhánh & ngôn ngữ</title>
+  <meta name="description" content="T-MOTOR - Dịch vụ cho thuê xe máy uy tín tại Đà Lạt, Nha Trang, Đà Nẵng">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #166534 0%, #15803d 50%, #22c55e 100%);
+      background-attachment: fixed;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .selector-container {
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      border-radius: 28px;
+      padding: 48px 44px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 
+        0 25px 80px rgba(0,0,0,0.2),
+        0 0 0 1px rgba(255,255,255,0.1);
+      animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .logo {
+      margin-bottom: 28px;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .logo img {
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .brand-name {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-name span {
+      color: #22c55e;
+    }
+
+    .tagline {
+      color: #6b7280;
+      font-size: 1.0625rem;
+      margin-bottom: 36px;
+      font-weight: 500;
+    }
+
+    /* Sections */
+    .selector-section {
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .selector-section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .selector-label {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .selector-label::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: #22c55e;
+      border-radius: 2px;
+    }
+
+    /* City Options */
+    .city-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .city-option {
+      padding: 22px 12px 18px;
+      border: 2px solid #e5e7eb;
+      border-radius: 18px;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .city-option::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .city-option:hover {
+      border-color: #22c55e;
+      background: #f0fdf4;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(34, 197, 94, 0.2);
+    }
+
+    .city-option:hover::before {
+      transform: scaleX(1);
+    }
+
+    .city-option.selected {
+      border-color: #22c55e;
+      background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+      color: #fff;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(34, 197, 94, 0.35);
+    }
+
+    .city-option.selected::before {
+      transform: scaleX(1);
+      background: rgba(255,255,255,0.3);
+    }
+
+    .city-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      display: block;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      transition: transform 0.3s ease;
+    }
+
+    .city-option:hover .city-icon {
+      transform: scale(1.1);
+    }
+
+    .city-name {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .city-name-en {
+      font-size: 0.75rem;
+      opacity: 0.75;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* Language Options */
+    .lang-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .lang-option {
+      padding: 20px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 16px;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .lang-option:hover {
+      border-color: #22c55e;
+      background: #f0fdf4;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.15);
+    }
+
+    .lang-option.selected {
+      border-color: #22c55e;
+      background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
+    }
+
+    .lang-flag {
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+
+    .lang-name {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .lang-native {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(180deg, #166534 0%, #14532d 100%);
+      color: #fff;
+      border: none;
+      border-radius: 18px;
+      font-size: 1.125rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-top: 36px;
+      font-family: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .submit-btn:hover:not(:disabled)::before {
+      left: 100%;
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      background: linear-gradient(180deg, #15803d 0%, #166534 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(22, 101, 52, 0.4);
+    }
+
+    .submit-btn:disabled {
+      background: #d1d5db;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    /* Skip Link */
+    .skip-link {
+      display: block;
+      margin-top: 20px;
+      color: #9ca3af;
+      font-size: 0.875rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      padding: 8px;
+    }
+
+    .skip-link:hover {
+      color: #6b7280;
+      text-decoration: underline;
+    }
+
+    /* Footer note */
+    .footer-note {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 0.8125rem;
+      color: #9ca3af;
+    }
+
+    .footer-note a {
+      color: #22c55e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 540px) {
+      body {
+        padding: 16px;
+        align-items: flex-start;
+        padding-top: 40px;
+      }
+
+      .selector-container {
+        padding: 32px 24px;
+        border-radius: 24px;
+      }
+
+      .brand-name {
+        font-size: 1.875rem;
+      }
+
+      .tagline {
+        font-size: 0.9375rem;
+        margin-bottom: 28px;
+      }
+
+      .city-options {
+        gap: 10px;
+      }
+
+      .city-option {
+        padding: 16px 8px 14px;
+      }
+
+      .city-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+
+      .city-name {
+        font-size: 0.8125rem;
+      }
+
+      .city-name-en {
+        font-size: 0.6875rem;
+      }
+
+      .lang-options {
+        gap: 10px;
+      }
+
+      .lang-option {
+        padding: 16px 12px;
+      }
+
+      .submit-btn {
+        padding: 18px;
+        margin-top: 28px;
+        font-size: 1rem;
+      }
+    }
+
+    /* Accessibility */
+    .city-option:focus-visible,
+    .lang-option:focus-visible,
+    .submit-btn:focus-visible {
+      outline: 3px solid #22c55e;
+      outline-offset: 3px;
+    }
+
+    /* Selection indicator */
+    .city-option.selected .city-check,
+    .lang-option.selected .lang-check {
+      display: flex;
+    }
+
+    .city-check,
+    .lang-check {
+      display: none;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 22px;
+      height: 22px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      color: #22c55e;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .city-option {
+      position: relative;
+    }
+
+    .lang-option {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div class="selector-container">
+    <div class="logo">
+      <img src="/images/motors/logo-tbike.jpg" alt="T-MOTOR Logo" onerror="this.style.display='none'">
+    </div>
+    
+    <h1 class="brand-name"><span>T-MOTOR</span></h1>
+    <p class="tagline">Thuê xe motor tại Việt Nam</p>
+
+    <!-- City Selection -->
+    <div class="selector-section">
+      <p class="selector-label" data-label-city>Chọn chi nhánh</p>
+      <div class="city-options">
+        <button class="city-option" data-city="dalat" aria-label="Chọn Đà Lạt" role="radio" aria-checked="false">
+          <span class="city-check">✓</span>
+          <span class="city-icon">🏔️</span>
+          <div class="city-name">Đà Lạt</div>
+          <div class="city-name-en">Da Lat</div>
+        </button>
+        <button class="city-option" data-city="nha-trang" aria-label="Chọn Nha Trang" role="radio" aria-checked="false">
+          <span class="city-check">✓</span>
+          <span class="city-icon">🏖️</span>
+          <div class="city-name">Nha Trang</div>
+          <div class="city-name-en">Nha Trang</div>
+        </button>
+        <button class="city-option" data-city="da-nang" aria-label="Chọn Đà Nẵng" role="radio" aria-checked="false">
+          <span class="city-check">✓</span>
+          <span class="city-icon">🏙️</span>
+          <div class="city-name">Đà Nẵng</div>
+          <div class="city-name-en">Da Nang</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Language Selection -->
+    <div class="selector-section">
+      <p class="selector-label" data-label-lang>Chọn ngôn ngữ</p>
+      <div class="lang-options">
+        <button class="lang-option" data-lang="vi" aria-label="Chọn tiếng Việt" role="radio" aria-checked="false">
+          <span class="lang-check">✓</span>
+          <span class="lang-flag">🇻🇳</span>
+          <div>
+            <div class="lang-name">Tiếng Việt</div>
+            <div class="lang-native">Vietnamese</div>
+          </div>
+        </button>
+        <button class="lang-option" data-lang="en" aria-label="Select English" role="radio" aria-checked="false">
+          <span class="lang-check">✓</span>
+          <span class="lang-flag">🇬🇧</span>
+          <div>
+            <div class="lang-name">English</div>
+            <div class="lang-native">Tiếng Anh</div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <button class="submit-btn" id="goBtn" disabled data-btn-continue>Tiếp tục →</button>
+    <a class="skip-link" id="skipBtn" href="/">Vào trang chính (Đà Lạt) →</a>
+
+    <div class="footer-note">
+      <a href="/nha-trang/">Nha Trang</a> · <a href="/da-nang/">Đà Nẵng</a> · <a href="/en/">English</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const cities = document.querySelectorAll('.city-option');
+      const langs = document.querySelectorAll('.lang-option');
+      const goBtn = document.getElementById('goBtn');
+      const skipBtn = document.getElementById('skipBtn');
+      
+      let selectedCity = null;
+      let selectedLang = null;
+
+      // City slug mapping
+      const citySlugMap = {
+        'dalat': 'dalat',
+        'nha-trang': 'nha-trang',
+        'da-nang': 'da-nang'
+      };
+
+      // Translations
+      const i18n = {
+        vi: {
+          labelCity: 'Chọn chi nhánh',
+          labelLang: 'Chọn ngôn ngữ',
+          tagline: 'Thuê xe motor tại Việt Nam',
+          btnContinue: 'Tiếp tục →',
+          skipText: 'Vào trang chính (Đà Lạt) →'
+        },
+        en: {
+          labelCity: 'Select branch',
+          labelLang: 'Select language',
+          tagline: 'Motorbike rental in Vietnam',
+          btnContinue: 'Continue →',
+          skipText: 'Go to main page (Da Lat) →'
+        }
+      };
+
+      // Check localStorage for saved preferences
+      function loadSavedPreferences() {
+        const savedCity = localStorage.getItem('tmotor_city');
+        const savedLang = localStorage.getItem('tmotor_lang');
+
+        if (savedCity) {
+          const cityBtn = document.querySelector(`[data-city="${savedCity}"]`);
+          if (cityBtn) {
+            selectCity(cityBtn, savedCity);
+          }
+        }
+
+        if (savedLang) {
+          const langBtn = document.querySelector(`[data-lang="${savedLang}"]`);
+          if (langBtn) {
+            selectLang(langBtn, savedLang);
+          }
+        }
+
+        updateUI();
+        checkReady();
+      }
+
+      // Select city
+      function selectCity(btn, city) {
+        cities.forEach(b => {
+          b.classList.remove('selected');
+          b.setAttribute('aria-checked', 'false');
+        });
+        btn.classList.add('selected');
+        btn.setAttribute('aria-checked', 'true');
+        selectedCity = city;
+      }
+
+      // Select language
+      function selectLang(btn, lang) {
+        langs.forEach(b => {
+          b.classList.remove('selected');
+          b.setAttribute('aria-checked', 'false');
+        });
+        btn.classList.add('selected');
+        btn.setAttribute('aria-checked', 'true');
+        selectedLang = lang;
+        updateUI();
+      }
+
+      // Update UI based on selected language
+      function updateUI() {
+        const t = i18n[selectedLang] || i18n.vi;
+        document.querySelector('[data-label-city]').textContent = t.labelCity;
+        document.querySelector('[data-label-lang]').textContent = t.labelLang;
+        document.querySelector('.tagline').textContent = t.tagline;
+        document.getElementById('goBtn').textContent = t.btnContinue;
+        document.getElementById('skipBtn').textContent = t.skipText;
+        document.documentElement.lang = selectedLang;
+      }
+
+      // Check if form is ready
+      function checkReady() {
+        goBtn.disabled = !(selectedCity && selectedLang);
+      }
+
+      // Event listeners for cities
+      cities.forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectCity(btn, btn.dataset.city);
+          checkReady();
+        });
+
+        btn.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            selectCity(btn, btn.dataset.city);
+            checkReady();
+          }
+        });
+      });
+
+      // Event listeners for languages
+      langs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectLang(btn, btn.dataset.lang);
+          checkReady();
+        });
+
+        btn.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            selectLang(btn, btn.dataset.lang);
+            checkReady();
+          }
+        });
+      });
+
+      // Submit button
+      goBtn.addEventListener('click', () => {
+        if (selectedCity && selectedLang) {
+          // Save to localStorage
+          localStorage.setItem('tmotor_city', selectedCity);
+          localStorage.setItem('tmotor_lang', selectedLang);
+
+          // Build URL
+          let url = '';
+          if (selectedLang === 'en') {
+            url = `/en/${selectedCity}/`;
+          } else {
+            url = `/${selectedCity}/`;
+          }
+
+          // Redirect
+          window.location.href = url;
+        }
+      });
+
+      // Skip button (go to default: Da Lat, Vietnamese)
+      skipBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.setItem('tmotor_city', 'dalat');
+        localStorage.setItem('tmotor_lang', 'vi');
+        window.location.href = '/';
+      });
+
+      // Initialize
+      loadSavedPreferences();
+
+      // Auto-select first options if none saved
+      if (!selectedCity) {
+        selectCity(cities[0], cities[0].dataset.city);
+        checkReady();
+      }
+      if (!selectedLang) {
+        selectLang(langs[0], langs[0].dataset.lang);
+        checkReady();
+      }
+    })();
+  </script>
+</body>
+</html>

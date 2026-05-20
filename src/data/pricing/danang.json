@@ -1,0 +1,120 @@
+{
+  "branch_id": "da_nang",
+  "branch_name": "T-Motor Da Nang",
+  "city": "Da Nang",
+  "cityVi": "Đà Nẵng",
+  "address": "54 Ho Xuan Huong St, Da Nang City",
+  "phone": "+84 393 266 737",
+  "website": "www.tmotor.vn",
+  "contact_channels": ["Whatsapp", "Zalo", "Viber"],
+  "has_monthly_price": true,
+  "promotion": null,
+  "title": "Da Nang Motorbike Rental Prices",
+  "titleVi": "Bảng giá thuê xe máy Đà Nẵng",
+  "subtitle": "Affordable motorbike rental in Da Nang - Hotel delivery available",
+  "subtitleVi": "Cho thuê xe máy Đà Nẵng giá rẻ - Giao xe tận nơi",
+  "services": [],
+  "servicesVi": [],
+  "notes": [
+    "Hotel delivery within Da Nang city center",
+    "Prices include helmet and raincoat",
+    "Available for trips to Hoi An and Son Tra"
+  ],
+  "notesVi": [
+    "Giao xe tận khách sạn trong nội thành Đà Nẵng",
+    "Giá đã bao gồm mũ bảo hiểm và áo mưa",
+    "Hỗ trợ thuê xe đi Hội An, Sơn Trà"
+  ],
+  "motorbikes": [
+    {
+      "model": "Yamaha R15",
+      "daily_price_k": 200,
+      "weekly_price_k": 1000,
+      "monthly_price_k": 4000
+    },
+    {
+      "model": "Yamaha TFX",
+      "daily_price_k": 200,
+      "weekly_price_k": 1000,
+      "monthly_price_k": 4000
+    },
+    {
+      "model": "Honda CB190R",
+      "daily_price_k": 250,
+      "weekly_price_k": 1500,
+      "monthly_price_k": 5000
+    },
+    {
+      "model": "Yamaha R3",
+      "daily_price_k": 550,
+      "weekly_price_k": 2800,
+      "monthly_price_k": 8250
+    },
+    {
+      "model": "Honda CB150X",
+      "daily_price_k": 600,
+      "weekly_price_k": 3500,
+      "monthly_price_k": 9000
+    },
+    {
+      "model": "Yamaha MT-03",
+      "daily_price_k": 600,
+      "weekly_price_k": 3500,
+      "monthly_price_k": 9000
+    },
+    {
+      "model": "Yamaha R3 2024",
+      "daily_price_k": 650,
+      "weekly_price_k": 3500,
+      "monthly_price_k": 9750
+    },
+    {
+      "model": "KTM Duke 390",
+      "daily_price_k": 650,
+      "weekly_price_k": 3500,
+      "monthly_price_k": 9750
+    },
+    {
+      "model": "Kawasaki Ninja 400",
+      "daily_price_k": 650,
+      "weekly_price_k": 3500,
+      "monthly_price_k": 9750
+    },
+    {
+      "model": "Kawasaki Z300",
+      "daily_price_k": 650,
+      "weekly_price_k": 3500,
+      "monthly_price_k": 9750
+    },
+    {
+      "model": "Honda CBR500R",
+      "daily_price_k": 850,
+      "weekly_price_k": 3500,
+      "monthly_price_k": 12750
+    },
+    {
+      "model": "Kawasaki Ninja 650",
+      "daily_price_k": 1000,
+      "weekly_price_k": 5500,
+      "monthly_price_k": 15000
+    },
+    {
+      "model": "Kawasaki Z800",
+      "daily_price_k": 1200,
+      "weekly_price_k": 6800,
+      "monthly_price_k": 18000
+    },
+    {
+      "model": "Honda CB500F",
+      "daily_price_k": 1200,
+      "weekly_price_k": 6800,
+      "monthly_price_k": 18000
+    },
+    {
+      "model": "Honda CBR650R",
+      "daily_price_k": 1500,
+      "weekly_price_k": 8500,
+      "monthly_price_k": 22500
+    }
+  ]
+}

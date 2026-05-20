@@ -1,16 +1,29 @@
 {
-  "name": "thue-xe-motor-dalat",
-  "version": "1.0.0",
-  "description": "Thuê xe motor Đà Lạt - Dịch vụ cho thuê xe máy uy tín tại Đà Lạt",
-  "main": "server.js",
+  "name": "t-motor",
+  "version": "2.0.0",
+  "description": "T-MOTOR - Motorcycle Rental Service (Da Lat, Nha Trang, Da Nang)",
+  "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "vite",
+    "dev:server": "node server.js",
+    "build": "node build.js && cp -r public/images dist/",
+    "preview": "vite preview",
+    "preview:server": "node server.js"
   },
-  "keywords": ["thuê xe", "cho thuê xe máy", "đà lạt", "motor", "xe máy đà lạt"],
+  "keywords": [
+    "motorbike rental",
+    "scooter rental",
+    "da lat",
+    "nha trang",
+    "da nang",
+    "vietnam"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
   }
 }

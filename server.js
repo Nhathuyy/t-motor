@@ -1,29 +1,22 @@
+/**
+ * T-MOTOR Server
+ * Production server for serving built files
+ */
+
 const express = require('express');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3000;
 
-// Static files
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from dist
+app.use(express.static(path.join(__dirname, 'dist')));
 
-// Main route - Landing page
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-// Sitemap for SEO
-app.get('/sitemap.xml', (req, res) => {
-  res.type('application/xml');
-  res.sendFile(path.join(__dirname, 'public', 'sitemap.xml'));
-});
-
-// Robots.txt for SEO
-app.get('/robots.txt', (req, res) => {
-  res.type('text/plain');
-  res.sendFile(path.join(__dirname, 'public', 'robots.txt'));
+// SPA fallback for all routes (optional)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server đang chạy tại http://localhost:${PORT}`);
+  console.log(`🚀 T-MOTOR server running at http://localhost:${PORT}`);
 });

@@ -1,0 +1,102 @@
+{
+  "branch_id": "da_lat",
+  "branch_name": "T-Motor Da Lat",
+  "city": "Da Lat",
+  "cityVi": "Đà Lạt",
+  "address": "H35 Pham Hong Thai St, Ward 10, DaLat City",
+  "phone": "+84 848 774 775",
+  "website": "www.tmotor.vn",
+  "contact_channels": ["Whatsapp", "Zalo", "Viber"],
+  "has_monthly_price": true,
+  "promotion": null,
+  "title": "Da Lat Motorbike Rental Prices",
+  "titleVi": "Bảng giá thuê xe máy Đà Lạt",
+  "subtitle": "Latest motorbike rental prices Da Lat 2026",
+  "subtitleVi": "Giá thuê xe máy Đà Lạt mới nhất 2026",
+  "services": [],
+  "servicesVi": [],
+  "notes": [
+    "Hotel delivery within Da Lat city center",
+    "Prices include helmet and raincoat",
+    "Long-term rental discounts available"
+  ],
+  "notesVi": [
+    "Giao xe tận khách sạn trong nội thành Đà Lạt",
+    "Giá đã bao gồm mũ bảo hiểm và áo mưa",
+    "Thuê dài hạn được giảm giá"
+  ],
+  "motorbikes": [
+    {
+      "model": "Honda Air Blade",
+      "daily_price_k": 150,
+      "weekly_price_k": 850,
+      "monthly_price_k": 3000
+    },
+    {
+      "model": "Honda SH",
+      "daily_price_k": 300,
+      "weekly_price_k": 1800,
+      "monthly_price_k": 6000
+    },
+    {
+      "model": "Honda ADV",
+      "daily_price_k": 500,
+      "weekly_price_k": 2500,
+      "monthly_price_k": 7500
+    },
+    {
+      "model": "Yamaha WR155",
+      "daily_price_k": 650,
+      "weekly_price_k": 3500,
+      "monthly_price_k": 9750
+    },
+    {
+      "model": "Yamaha XMAX 300",
+      "daily_price_k": 800,
+      "weekly_price_k": 4600,
+      "monthly_price_k": 11500
+    },
+    {
+      "model": "Honda CB300R",
+      "daily_price_k": 750,
+      "weekly_price_k": 4200,
+      "monthly_price_k": 10500
+    },
+    {
+      "model": "Kawasaki Z300",
+      "daily_price_k": 650,
+      "weekly_price_k": 3500,
+      "monthly_price_k": 9750
+    },
+    {
+      "model": "Yamaha MT-03",
+      "daily_price_k": 650,
+      "weekly_price_k": 3500,
+      "monthly_price_k": 9750
+    },
+    {
+      "model": "KTM Duke 390",
+      "daily_price_k": 700,
+      "weekly_price_k": 3900,
+      "monthly_price_k": 10500
+    },
+    {
+      "model": "Kawasaki Z650",
+      "daily_price_k": 1000,
+      "weekly_price_k": 6000,
+      "monthly_price_k": 15000
+    },
+    {
+      "model": "Honda CB500X",
+      "daily_price_k": 1000,
+      "weekly_price_k": 6000,
+      "monthly_price_k": 15000
+    },
+    {
+      "model": "Honda CB500F",
+      "daily_price_k": 1000,
+      "weekly_price_k": 6000,
+      "monthly_price_k": 15000
+    }
+  ]
+}
