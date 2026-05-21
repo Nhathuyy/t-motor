@@ -76,10 +76,10 @@ export const translations = {
         },
         {
           title: 'Ký hợp đồng & nhận xe',
-          desc: 'Kiểm tra xe, mũ, áo mưa; nhận hướng dẫn vận hành cơ bản.',
+          desc: 'Kiểm tra xe, mũ, áo mưa; nhận hướng dẫn vận hành cơ bản. Thanh toán số tiền theo hợp đồng cho thuê xe.',
         },
         {
-          title: 'Trả xe & thanh toán',
+          title: 'Trả xe',
           desc: 'Hoàn tất theo giờ hẹn; hỗ trợ giao nhận linh hoạt trong nội thành.',
         },
       ],

@@ -185,15 +185,15 @@ a {
 }
 
 .logo-img {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   border-radius: 10px;
   flex-shrink: 0;
 }
 
 .logo-text {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   letter-spacing: -0.02em;
   line-height: 1.25;
 }
@@ -338,8 +338,8 @@ body.nav-open .mobile-drawer__panel {
 }
 
 .mobile-drawer__brand .logo-img {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
 }
 
 .mobile-drawer__close {
@@ -2909,12 +2909,12 @@ a.contact-item:hover {
   }
 
   .logo-img {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
   }
 
   .logo-text {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
 
   .header-controls {
@@ -3356,8 +3356,13 @@ a.contact-item:hover {
     min-width: 0;
   }
 
+  .logo-img {
+    width: 40px;
+    height: 40px;
+  }
+
   .logo-text {
-    font-size: clamp(0.78rem, 2.8vw, 0.95rem);
+    font-size: clamp(0.7rem, 2.5vw, 0.85rem);
   }
 
   .nav-toggle {

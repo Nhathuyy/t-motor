@@ -1085,7 +1085,7 @@ function generatePage(city, lang) {
 
   <header class="header">
     <div class="container header-inner">
-      <a href="${langPrefix}/${cityData.slugPath}" class="logo" aria-label="${brandName} ${cityName}">
+      <a href="${langPrefix}/" class="logo" aria-label="${brandName} ${cityName}">
         <img class="logo-img" src="/images/motors/logo-tbike.jpg" alt="" width="44" height="44" decoding="async">
         <span class="logo-text"><span class="logo-brand">${brandName}</span> ${lang === 'vi' ? 'Thuê xe motor' : 'Motorbike Rental'} <span class="logo-accent">${cityName}</span></span>
       </a>
@@ -1106,7 +1106,7 @@ function generatePage(city, lang) {
     <button type="button" class="mobile-drawer__backdrop" data-nav-backdrop aria-label="${lang === 'vi' ? 'Đóng menu' : 'Close menu'}"></button>
     <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="${lang === 'vi' ? 'Menu điều hướng' : 'Navigation menu'}">
       <div class="mobile-drawer__head">
-        <a href="${langPrefix}/${cityData.slugPath}" class="mobile-drawer__brand logo" data-mobile-menu-logo>
+        <a href="${langPrefix}/" class="mobile-drawer__brand logo" data-mobile-menu-logo>
           <img class="logo-img" src="/images/motors/logo-tbike.jpg" alt="" width="44" height="44" decoding="async">
           <span class="logo-text"><span class="logo-brand">${brandName}</span> ${lang === 'vi' ? 'Thuê xe motor' : 'Motorbike Rental'} <span class="logo-accent">${cityName}</span></span>
         </a>
