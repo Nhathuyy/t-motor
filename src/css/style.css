@@ -154,7 +154,7 @@ a {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--green-100);
-  padding: 16px 0;
+  padding: 10px 0;
   transition: box-shadow 0.3s ease;
 }
 
@@ -3299,7 +3299,7 @@ a.contact-item:hover {
   }
 
   .logo-text {
-    font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+    font-size: clamp(0.9rem, 2.5vw, 0.85rem);
   }
 
   .nav-toggle {
