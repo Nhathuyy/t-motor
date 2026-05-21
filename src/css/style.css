@@ -2217,48 +2217,54 @@ a.contact-item span strong {
 }
 
 .dalat-pricing__head {
-  display: grid;
-  grid-template-columns: 1fr 100px 100px 100px;
-  gap: 0;
-  background: var(--green-600);
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  font-size: 0.7rem;
 }
 
 .dalat-pricing__col-name {
-  grid-column: 1;
+  flex: 1;
 }
 
 .dalat-pricing__col-price {
-  text-align: right;
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 480px) {
+  .dalat-pricing__col-price {
+    gap: 4px;
+  }
+  
+  .dalat-pricing__col-price span {
+    min-width: 50px;
+    text-align: right;
+  }
 }
 
 .dalat-pricing__item {
-  display: grid;
-  grid-template-columns: 1fr 100px 100px 100px;
-  gap: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 13px 20px;
   border-bottom: 1px solid #d1fae5;
-  align-items: center;
   transition: background 0.15s;
-}
-
-.dalat-pricing__item:last-child {
-  border-bottom: none;
-}
-
-.dalat-pricing__item:hover {
-  background: #f0fdf4;
+  gap: 16px;
 }
 
 .dalat-pricing__name {
+  flex: 1;
   font-weight: 600;
   font-size: 0.9375rem;
   color: #1a1a1a;
+  min-width: 0;
+}
+
+.dalat-pricing__prices {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
 }
 
 .dalat-pricing__daily {
@@ -2266,6 +2272,7 @@ a.contact-item span strong {
   font-weight: 700;
   font-size: 0.9375rem;
   color: var(--green-700, #15803d);
+  white-space: nowrap;
 }
 
 .dalat-pricing__weekly {
@@ -2273,6 +2280,7 @@ a.contact-item span strong {
   font-weight: 600;
   font-size: 0.875rem;
   color: #374151;
+  white-space: nowrap;
 }
 
 .dalat-pricing__monthly {
@@ -2280,12 +2288,64 @@ a.contact-item span strong {
   font-weight: 500;
   font-size: 0.8125rem;
   color: #6b7280;
+  white-space: nowrap;
 }
 
 .dalat-pricing__unit {
   font-weight: 400;
   font-size: 0.75rem;
   opacity: 0.7;
+}
+
+/* Mobile responsive for pricing items */
+@media (max-width: 640px) {
+  .dalat-pricing__item {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .dalat-pricing__name {
+    font-size: 0.875rem;
+  }
+
+  .dalat-pricing__prices {
+    gap: 12px;
+  }
+
+  .dalat-pricing__daily,
+  .dalat-pricing__weekly,
+  .dalat-pricing__monthly {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dalat-pricing__item {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .dalat-pricing__name {
+    width: 100%;
+    font-size: 0.875rem;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #d1fae5;
+    margin-bottom: 8px;
+  }
+
+  .dalat-pricing__prices {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .dalat-pricing__daily,
+  .dalat-pricing__weekly,
+  .dalat-pricing__monthly {
+    font-size: 0.8125rem;
+    flex: 1;
+    text-align: center;
+  }
 }
 
 .dalat-pricing__section--big {
@@ -2374,6 +2434,8 @@ a.contact-item span strong {
   border: 2px solid #f59e0b;
   border-radius: var(--radius);
   overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nhatrang-pricing__table-wrap::before {
@@ -2386,6 +2448,7 @@ a.contact-item span strong {
   padding: 10px 20px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  min-width: max-content;
 }
 
 .nhatrang-pricing__table {
@@ -3147,6 +3210,130 @@ a.contact-item:hover {
 
   .price-cell {
     padding: 8px 6px;
+  }
+
+  /* Dalat Pricing Table - Mobile */
+  .dalat-pricing {
+    font-size: 0.85rem;
+  }
+
+  .dalat-pricing__head {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 12px;
+    font-size: 0.7rem;
+  }
+
+  .dalat-pricing__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .dalat-pricing__name {
+    flex: 1;
+    font-size: 0.875rem;
+    min-width: 0;
+  }
+
+  .dalat-pricing__daily,
+  .dalat-pricing__weekly,
+  .dalat-pricing__monthly {
+    text-align: right;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+  }
+
+  .dalat-pricing__unit {
+    display: none;
+  }
+
+  /* Nha Trang Pricing Table - Mobile */
+  .nhatrang-pricing__table-wrap::before {
+    font-size: 0.8125rem;
+    padding: 8px 12px;
+  }
+
+  .nhatrang-pricing__table {
+    font-size: 0.85rem;
+  }
+
+  .nhatrang-pricing__table th {
+    padding: 10px 12px;
+    font-size: 0.7rem;
+  }
+
+  .nhatrang-pricing__table td {
+    padding: 12px;
+  }
+
+  .nhatrang-pricing__name {
+    font-size: 0.875rem;
+  }
+
+  .nhatrang-pricing__table td:not(.nhatrang-pricing__name) {
+    font-size: 0.9rem;
+  }
+
+  .nhatrang-pricing__services {
+    padding: 16px;
+  }
+
+  .nhatrang-pricing__services-list {
+    gap: 8px 16px;
+  }
+
+  /* Nha Trang table mobile - stack content */
+  .nhatrang-pricing__table {
+    display: block;
+  }
+
+  .nhatrang-pricing__table thead {
+    display: none;
+  }
+
+  .nhatrang-pricing__table tbody {
+    display: block;
+  }
+
+  .nhatrang-pricing__table tbody tr {
+    display: block;
+    padding: 12px;
+    border-bottom: 1px solid #fde68a;
+  }
+
+  .nhatrang-pricing__table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .nhatrang-pricing__table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+  }
+
+  .nhatrang-pricing__table td:first-child {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    padding: 0;
+  }
+
+  .nhatrang-pricing__table td:not(:first-child) {
+    text-align: right;
+    font-weight: 700;
+    color: #15803d;
+    font-size: 0.9rem;
+  }
+
+  .nhatrang-pricing__table td::before {
+    content: attr(data-label);
+    font-weight: 500;
+    color: #92400e;
+    font-size: 0.8125rem;
   }
 
   /* FAQ */

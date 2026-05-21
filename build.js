@@ -554,18 +554,20 @@ function generateCityPricing(city, lang) {
       return `
             <div class="dalat-pricing__item">
               <span class="dalat-pricing__name">${bike.model}</span>
-              <span class="dalat-pricing__daily">${dailyFormatted}<span class="dalat-pricing__unit">/${dayLabel.toLowerCase()}</span></span>
-              <span class="dalat-pricing__weekly">${weeklyFormatted}<span class="dalat-pricing__unit">/${weekLabel.toLowerCase()}</span></span>
-              <span class="dalat-pricing__monthly">${monthlyFormatted}<span class="dalat-pricing__unit">/${monthLabel.toLowerCase()}</span></span>
+              <div class="dalat-pricing__prices">
+                <span class="dalat-pricing__daily">${dailyFormatted}<span class="dalat-pricing__unit">/${dayLabel.toLowerCase()}</span></span>
+                <span class="dalat-pricing__weekly">${weeklyFormatted}<span class="dalat-pricing__unit">/${weekLabel.toLowerCase()}</span></span>
+                <span class="dalat-pricing__monthly">${monthlyFormatted}<span class="dalat-pricing__unit">/${monthLabel.toLowerCase()}</span></span>
+              </div>
             </div>`;
     }
     
     // Nha Trang style (table)
     return `
             <tr>
-              <td class="price-table__name">${bike.model}</td>
-              <td class="price-table__daily">${dailyFormatted}</td>
-              <td class="price-table__weekly">${weeklyFormatted}</td>
+              <td class="nhatrang-pricing__name" data-label="Model">${bike.model}</td>
+              <td class="nhatrang-pricing__daily" data-label="${dayLabel}">${dailyFormatted}</td>
+              <td class="nhatrang-pricing__weekly" data-label="${weekLabel}">${weeklyFormatted}</td>
             </tr>`;
   }).join('');
 
@@ -1240,9 +1242,9 @@ function generatePage(city, lang) {
               <table class="nhatrang-pricing__table" aria-label="${cityPricing.title}">
                 <thead>
                   <tr>
-                    <th class="nhatrang-pricing__th-name">Model</th>
-                    <th class="nhatrang-pricing__th-price">${cityPricing.dayLabel}</th>
-                    <th class="nhatrang-pricing__th-price">${cityPricing.weekLabel}</th>
+                    <th data-label="Model">Model</th>
+                    <th data-label="${cityPricing.dayLabel}">${cityPricing.dayLabel}</th>
+                    <th data-label="${cityPricing.weekLabel}">${cityPricing.weekLabel}</th>
                   </tr>
                 </thead>
                 <tbody>
