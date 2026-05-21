@@ -235,7 +235,7 @@ export const translations = {
       },
       aggregateRating: {
         ratingValue: '4.8',
-        reviewCount: String(Math.floor(Math.random() * 121) + 80),
+        reviewCount: '127',
         bestRating: '5',
       },
     },
@@ -476,7 +476,7 @@ export const translations = {
       },
       aggregateRating: {
         ratingValue: '4.8',
-        reviewCount: String(Math.floor(Math.random() * 121) + 80),
+        reviewCount: '127',
         bestRating: '5',
       },
     },

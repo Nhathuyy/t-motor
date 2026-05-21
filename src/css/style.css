@@ -99,10 +99,16 @@ html {
 
 body {
   margin: 0;
+  padding-top: 0; /* Header là sticky, không đẩy body */
   font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, -apple-system, sans-serif;
   background: var(--white);
   color: var(--gray-800);
   line-height: 1.6;
+}
+
+/* Main content cần padding để không bị header che */
+main {
+  padding-top: 0;
 }
 
 .skip-link {
@@ -1262,27 +1268,38 @@ body.nav-open .mobile-drawer__panel {
 }
 
 .branch-photo__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
   gap: 16px;
+  padding: 0;
 }
 
 .branch-photo__item {
   aspect-ratio: 4/3;
-  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
   overflow: hidden;
-  position: relative;
+  background: #e8f5e9;
 }
 
 .branch-photo__item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .branch-photo__grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .branch-photo__grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -3475,8 +3492,21 @@ a.contact-item:hover {
   }
 
   .fleet-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    .fleet-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .fleet-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .fleet-card {
@@ -3629,8 +3659,21 @@ a.contact-item:hover {
   }
 
   .fleet-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    .fleet-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .fleet-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .fleet-card {

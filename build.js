@@ -755,9 +755,9 @@ function generateAllBranches(city, lang) {
 
   const branchKeys = ['dalat', 'nhaTrang', 'daNang'];
   const branchImages = {
-    dalat: '/images/branches/dalat.jpg',
-    nhaTrang: '/images/branches/nha-trang.jpg',
-    daNang: '/images/branches/da-nang.jpg',
+    dalat: '/images/motors/dalat-tmotor%20.jpg',
+    nhaTrang: '/images/motors/nhatrang-tmotor%20.jpg',
+    daNang: '/images/motors/danang-tmotor.jpg',
   };
 
   const branches = branchKeys.map((key, index) => {
@@ -769,6 +769,7 @@ function generateAllBranches(city, lang) {
     const hasPhone = !!data.contact.phone;
     const phoneDisplay = data.contact.phoneDisplay || '';
     const address = data.address.street ? `${data.address.street}, ${data.address.city}` : data.address.city;
+    const branchImg = branchImages[key] || '';
 
     const descKey = lang === 'vi' ? 'descVi' : 'descEn';
     const desc = data.content[lang].heroDesc || '';
@@ -777,6 +778,7 @@ function generateAllBranches(city, lang) {
           <article class="branch-featured-card ${isCurrent ? 'branch-featured-card--current' : ''}">
             <div class="branch-featured-card__image">
               <div class="branch-featured-card__img-wrapper">
+                <img src="${branchImg}" alt="${name}" loading="lazy">
               </div>
             </div>
             <div class="branch-featured-card__content">
@@ -1282,12 +1284,6 @@ function generatePage(city, lang) {
             ${locationCards.cards}
           </div>
         </section>
-
-        <!-- Branch Photos Below Pricing -->
-        <div class="branch-photo">
-          <div class="branch-photo__grid">
-          </div>
-        </div>
       </div>
     </section>
 
