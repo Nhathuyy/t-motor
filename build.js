@@ -915,15 +915,7 @@ function generateFloatButtons(city, lang) {
   const trans = translations[lang].floatButtons;
   const buttons = [];
 
-  if (cityData.contact.facebook) {
-    buttons.push(`
-    <a href="${cityData.contact.facebook}" target="_blank" rel="noopener" class="float-btn float-btn-fb" title="${trans.facebook}">
-      <span class="float-btn-wave"></span>
-      <span class="float-btn-wave float-btn-wave-2"></span>
-      <span class="float-btn-icon">f</span>
-    </a>`);
-  }
-
+  // Hotline - always first (most important)
   if (cityData.contact.phone) {
     buttons.push(`
     <a href="tel:${cityData.contact.phone}" class="float-btn float-btn-hotline" title="${trans.hotline}">
@@ -940,6 +932,7 @@ function generateFloatButtons(city, lang) {
     </a>`);
   }
 
+  // Zalo - second
   if (cityData.contact.zalo) {
     const zaloLabel = lang === 'vi' ? 'Z' : 'Z';
     buttons.push(`
@@ -947,6 +940,16 @@ function generateFloatButtons(city, lang) {
       <span class="float-btn-wave"></span>
       <span class="float-btn-wave float-btn-wave-2"></span>
       <span class="float-btn-icon">${zaloLabel}</span>
+    </a>`);
+  }
+
+  // Facebook - third
+  if (cityData.contact.facebook) {
+    buttons.push(`
+    <a href="${cityData.contact.facebook}" target="_blank" rel="noopener" class="float-btn float-btn-fb" title="${trans.facebook}">
+      <span class="float-btn-wave"></span>
+      <span class="float-btn-wave float-btn-wave-2"></span>
+      <span class="float-btn-icon">f</span>
     </a>`);
   }
 
