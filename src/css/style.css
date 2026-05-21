@@ -517,14 +517,14 @@ body.nav-open .mobile-drawer__panel {
 /* ===== Hero (showcase — minimal + blob + carousel) ===== */
 .hero--showcase {
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   isolation: isolate;
   min-height: auto;
   padding: 48px 0 64px;
   background:
-    radial-gradient(circle at 68% 44%, rgba(139, 255, 90, 0.22) 0%, rgba(139, 255, 90, 0.12) 24%, transparent 54%),
-    radial-gradient(circle at 84% 28%, rgba(190, 255, 160, 0.18) 0%, transparent 42%),
-    linear-gradient(135deg, #ffffff 0%, #fcfff9 50%, #f7fff2 100%);
+    radial-gradient(circle at 70% 50%, rgba(154, 255, 102, 0.28) 0%, rgba(154, 255, 102, 0.08) 35%, transparent 65%),
+    radial-gradient(circle at 90% 30%, rgba(180, 255, 130, 0.22) 0%, transparent 50%),
+    linear-gradient(180deg, #ffffff 0%, #f8fff5 100%);
 }
 
 .hero--showcase > * {
@@ -535,14 +535,13 @@ body.nav-open .mobile-drawer__panel {
 .hero--showcase::before {
   content: "";
   position: absolute;
-  width: 720px;
-  height: 620px;
-  right: 7%;
-  top: 10%;
-  border-radius: 46% 54% 58% 42% / 44% 38% 62% 56%;
+  width: 85%;
+  height: 100%;
+  right: -10%;
+  top: -20%;
   background:
-    radial-gradient(circle at 45% 48%, rgba(139, 255, 90, 0.24), rgba(213, 255, 196, 0.12) 42%, transparent 70%);
-  filter: blur(2px);
+    radial-gradient(ellipse at 70% 50%, rgba(139, 255, 90, 0.35) 0%, rgba(200, 255, 150, 0.15) 40%, transparent 70%);
+  filter: blur(30px);
   z-index: -1;
   pointer-events: none;
 }
@@ -550,13 +549,13 @@ body.nav-open .mobile-drawer__panel {
 .hero--showcase::after {
   content: "";
   position: absolute;
-  width: 330px;
-  height: 330px;
-  right: 21%;
-  bottom: 16%;
-  background-image: radial-gradient(rgba(80, 210, 65, 0.30) 1.2px, transparent 1.2px);
-  background-size: 18px 18px;
-  opacity: 0.36;
+  width: 400px;
+  height: 400px;
+  right: 5%;
+  bottom: 10%;
+  background-image: radial-gradient(rgba(80, 200, 50, 0.18) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  opacity: 0.5;
   z-index: -1;
   pointer-events: none;
 }
@@ -569,6 +568,21 @@ body.nav-open .mobile-drawer__panel {
   .hero--showcase {
     padding: 56px 0 80px;
     min-height: 560px;
+  }
+
+  .hero--showcase::before {
+    width: 70%;
+    height: 120%;
+    right: -5%;
+    top: -15%;
+    filter: blur(40px);
+  }
+
+  .hero--showcase::after {
+    width: 500px;
+    height: 500px;
+    right: 0%;
+    bottom: 5%;
   }
 
   .hero-carousel.hero--showcase {
@@ -931,15 +945,7 @@ body.nav-open .mobile-drawer__panel {
 }
 
 .hero-showcase-visual::before {
-  content: "";
-  position: absolute;
-  inset: -8% -10% -6% -8%;
-  border-radius: 140px 40px 140px 40px;
-  background:
-    radial-gradient(circle at 55% 50%, rgba(139, 255, 90, 0.18), transparent 62%),
-    linear-gradient(135deg, rgba(234, 255, 225, 0.50), rgba(255,255,255,0.05));
-  z-index: -1;
-  pointer-events: none;
+  display: none;
 }
 
 @media (min-width: 960px) {
@@ -948,11 +954,6 @@ body.nav-open .mobile-drawer__panel {
     align-items: center;
     justify-content: flex-end;
     padding: 0;
-  }
-
-  .hero-showcase-visual::before {
-    inset: -5% -15% -5% -10%;
-    border-radius: 160px 60px 160px 60px;
   }
 }
 
@@ -2963,26 +2964,27 @@ a.contact-item:hover {
   /* Hero showcase mobile */
   .hero--showcase {
     padding: 24px 0 32px;
-    overflow: visible;
+    overflow: hidden;
     background:
-      radial-gradient(circle at 50% 48%, rgba(139, 255, 90, 0.16) 0%, transparent 58%),
-      linear-gradient(180deg, #ffffff 0%, #f8fff4 100%);
+      radial-gradient(circle at 65% 60%, rgba(154, 255, 102, 0.32) 0%, rgba(154, 255, 102, 0.12) 40%, transparent 70%),
+      linear-gradient(180deg, #ffffff 0%, #f8fff5 100%);
   }
 
   .hero--showcase::before {
-    width: 420px;
-    height: 420px;
-    right: -120px;
-    top: 260px;
-    opacity: 0.7;
+    width: 100%;
+    height: 60%;
+    right: -20%;
+    top: 30%;
+    filter: blur(40px);
+    opacity: 0.8;
   }
 
   .hero--showcase::after {
-    width: 190px;
-    height: 190px;
-    right: 16px;
-    bottom: 110px;
-    opacity: 0.24;
+    width: 200px;
+    height: 200px;
+    right: 5%;
+    bottom: 5%;
+    opacity: 0.35;
   }
 
   .btn-outline {
@@ -2997,9 +2999,7 @@ a.contact-item:hover {
   }
 
   .hero-showcase-visual::before {
-    inset: 0 -8% -4% -8%;
-    border-radius: 48px 90px 48px 90px;
-    opacity: 0.7;
+    display: none;
   }
 
   .hero-blob {
@@ -3341,26 +3341,27 @@ a.contact-item:hover {
 
   .hero--showcase {
     padding: 40px 0 52px;
-    overflow: visible;
+    overflow: hidden;
     background:
-      radial-gradient(circle at 50% 48%, rgba(139, 255, 90, 0.16) 0%, transparent 58%),
-      linear-gradient(180deg, #ffffff 0%, #f8fff4 100%);
+      radial-gradient(circle at 70% 55%, rgba(154, 255, 102, 0.28) 0%, rgba(154, 255, 102, 0.1) 40%, transparent 70%),
+      linear-gradient(180deg, #ffffff 0%, #f8fff5 100%);
   }
 
   .hero--showcase::before {
-    width: 420px;
-    height: 420px;
-    right: -120px;
-    top: 260px;
-    opacity: 0.7;
+    width: 80%;
+    height: 80%;
+    right: -10%;
+    top: 20%;
+    filter: blur(50px);
+    opacity: 0.75;
   }
 
   .hero--showcase::after {
-    width: 190px;
-    height: 190px;
-    right: 16px;
-    bottom: 110px;
-    opacity: 0.24;
+    width: 250px;
+    height: 250px;
+    right: 0%;
+    bottom: 10%;
+    opacity: 0.4;
   }
 
   .hero-blob {
@@ -3368,9 +3369,7 @@ a.contact-item:hover {
   }
 
   .hero-showcase-visual::before {
-    inset: 0 -8% -4% -8%;
-    border-radius: 48px 90px 48px 90px;
-    opacity: 0.7;
+    display: none;
   }
 
   .benefits-grid {
@@ -3475,31 +3474,32 @@ a.contact-item:hover {
 
   .hero--showcase {
     padding: 36px 0 48px;
-    overflow: visible;
+    overflow: hidden;
     background:
-      radial-gradient(circle at 50% 48%, rgba(139, 255, 90, 0.14) 0%, transparent 58%),
-      linear-gradient(180deg, #ffffff 0%, #f8fff4 100%);
+      radial-gradient(circle at 70% 60%, rgba(154, 255, 102, 0.30) 0%, rgba(154, 255, 102, 0.12) 40%, transparent 70%),
+      linear-gradient(180deg, #ffffff 0%, #f8fff5 100%);
   }
 
   .hero--showcase::before {
-    width: 380px;
-    height: 380px;
-    right: -100px;
-    top: 240px;
-    opacity: 0.7;
+    width: 100%;
+    height: 70%;
+    right: -25%;
+    top: 25%;
+    filter: blur(45px);
+    opacity: 0.85;
   }
 
   .hero--showcase::after {
-    width: 170px;
-    height: 170px;
-    right: 12px;
-    bottom: 100px;
-    opacity: 0.24;
+    width: 220px;
+    height: 220px;
+    right: 0%;
+    bottom: 5%;
+    opacity: 0.4;
   }
 
   /* Xe + blob giống desktop: blob xám bo góc căn giữa, xe to hơn và nằm giữa */
   .hero-showcase-visual {
-    overflow: visible;
+    overflow: hidden;
     min-height: 320px;
     padding: 28px 12px 20px;
     align-items: flex-end;
@@ -3508,9 +3508,7 @@ a.contact-item:hover {
   }
 
   .hero-showcase-visual::before {
-    inset: 0 -8% -4% -8%;
-    border-radius: 48px 90px 48px 90px;
-    opacity: 0.7;
+    display: none;
   }
 
   .hero-blob {
