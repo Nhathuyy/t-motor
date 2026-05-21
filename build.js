@@ -576,6 +576,7 @@ function generateCityPricing(city, lang) {
     monthLabel,
     serviceItems,
     bikeRows,
+    hasMonthly,
     hasMonthlyPrice: pricing.has_monthly_price,
     address: pricing.address,
     phone: pricing.phone,

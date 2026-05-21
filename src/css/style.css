@@ -2213,9 +2213,30 @@ a.contact-item span strong {
 
 .pricing-table {
   width: 100%;
-  min-width: 620px;
+  min-width: 650px;
   border-collapse: collapse;
   background: #fff;
+  table-layout: fixed;
+}
+
+.pricing-table th:first-child,
+.pricing-table td:first-child {
+  width: 45%;
+}
+
+.pricing-table th:nth-child(2),
+.pricing-table td:nth-child(2) {
+  width: 18%;
+}
+
+.pricing-table th:nth-child(3),
+.pricing-table td:nth-child(3) {
+  width: 18%;
+}
+
+.pricing-table th:nth-child(4),
+.pricing-table td:nth-child(4) {
+  width: 19%;
 }
 
 .pricing-table thead tr {
