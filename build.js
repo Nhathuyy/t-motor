@@ -1475,6 +1475,28 @@ function build() {
     fs.mkdirSync(distDir, { recursive: true });
   }
 
+  // Copy CSS from src/css/style.css to dist/css/style.css
+  const cssDir = path.join(distDir, 'css');
+  if (!fs.existsSync(cssDir)) {
+    fs.mkdirSync(cssDir, { recursive: true });
+  }
+  fs.copyFileSync(
+    path.join(rootDir, 'src', 'css', 'style.css'),
+    path.join(distDir, 'css', 'style.css')
+  );
+  console.log('✅ Copied: dist/css/style.css');
+
+  // Copy JS from src/js/main.js to dist/js/main.js
+  const jsDir = path.join(distDir, 'js');
+  if (!fs.existsSync(jsDir)) {
+    fs.mkdirSync(jsDir, { recursive: true });
+  }
+  fs.copyFileSync(
+    path.join(rootDir, 'src', 'js', 'main.js'),
+    path.join(distDir, 'js', 'main.js')
+  );
+  console.log('✅ Copied: dist/js/main.js');
+
   // Copy landing page as index.html
   const landingHtml = fs.readFileSync(path.join(rootDir, 'landing.html'), 'utf-8');
   fs.writeFileSync(path.join(distDir, 'index.html'), landingHtml);
