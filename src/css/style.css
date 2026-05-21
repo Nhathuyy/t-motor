@@ -2202,185 +2202,82 @@ a.contact-item span strong {
   margin: 0;
 }
 
-.dalat-pricing {
-  border: 1px solid #d1fae5;
-  border-radius: var(--radius);
-  overflow: hidden;
+.pricing-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   margin-bottom: 32px;
-  background: #fff;
+  border-radius: var(--radius);
   box-shadow: 0 4px 16px rgba(22, 163, 74, 0.08);
 }
 
-.dalat-pricing__section {
-  display: flex;
-  flex-direction: column;
+.pricing-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  background: #fff;
 }
 
-.dalat-pricing__head {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 12px;
-  font-size: 0.7rem;
+.pricing-table thead tr {
+  background: var(--green-600);
+  color: #fff;
 }
 
-.dalat-pricing__col-name {
-  flex: 1;
-}
-
-.dalat-pricing__col-price {
-  display: flex;
-  gap: 8px;
-}
-
-@media (max-width: 480px) {
-  .dalat-pricing__col-price {
-    gap: 4px;
-  }
-  
-  .dalat-pricing__col-price span {
-    min-width: 50px;
-    text-align: right;
-  }
-}
-
-.dalat-pricing__item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 13px 20px;
-  border-bottom: 1px solid #d1fae5;
-  transition: background 0.15s;
-  gap: 16px;
-}
-
-.dalat-pricing__name {
-  flex: 1;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  color: #1a1a1a;
-  min-width: 0;
-}
-
-.dalat-pricing__prices {
-  display: flex;
-  gap: 16px;
-  flex-shrink: 0;
-}
-
-.dalat-pricing__daily {
-  text-align: right;
+.pricing-table th {
+  padding: 14px 16px;
+  text-align: left;
   font-weight: 700;
-  font-size: 0.9375rem;
-  color: var(--green-700, #15803d);
-  white-space: nowrap;
-}
-
-.dalat-pricing__weekly {
-  text-align: right;
-  font-weight: 600;
   font-size: 0.875rem;
-  color: #374151;
-  white-space: nowrap;
-}
-
-.dalat-pricing__monthly {
-  text-align: right;
-  font-weight: 500;
-  font-size: 0.8125rem;
-  color: #6b7280;
-  white-space: nowrap;
-}
-
-.dalat-pricing__unit {
-  font-weight: 400;
-  font-size: 0.75rem;
-  opacity: 0.7;
-}
-
-/* Mobile responsive for pricing items */
-@media (max-width: 640px) {
-  .dalat-pricing__item {
-    padding: 12px;
-    gap: 8px;
-  }
-
-  .dalat-pricing__name {
-    font-size: 0.875rem;
-  }
-
-  .dalat-pricing__prices {
-    gap: 12px;
-  }
-
-  .dalat-pricing__daily,
-  .dalat-pricing__weekly,
-  .dalat-pricing__monthly {
-    font-size: 0.8125rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .dalat-pricing__item {
-    flex-wrap: wrap;
-    padding: 10px;
-  }
-
-  .dalat-pricing__name {
-    width: 100%;
-    font-size: 0.875rem;
-    padding-bottom: 8px;
-    border-bottom: 1px dashed #d1fae5;
-    margin-bottom: 8px;
-  }
-
-  .dalat-pricing__prices {
-    width: 100%;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .dalat-pricing__daily,
-  .dalat-pricing__weekly,
-  .dalat-pricing__monthly {
-    font-size: 0.8125rem;
-    flex: 1;
-    text-align: center;
-  }
-}
-
-.dalat-pricing__section--big {
-  background: #f0fdf4;
-  border-top: 2px solid var(--green-600);
-}
-
-.dalat-pricing__section--big .dalat-pricing__head {
-  background: var(--green-700, #14532d);
-}
-
-.dalat-pricing__section--big .dalat-pricing__item {
-  background: #f0fdf4;
-}
-
-.dalat-pricing__section--big .dalat-pricing__item:hover {
-  background: #dcfce7;
-}
-
-.dalat-pricing__section-title {
-  font-size: 0.75rem;
-  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--green-700, #14532d);
-  padding: 10px 20px 6px;
-  background: #dcfce7;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--green-700);
 }
 
-/* Nha Trang Pricing Table */
+.pricing-table th:not(:first-child) {
+  text-align: right;
+}
+
+.pricing-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.15s;
+}
+
+.pricing-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.pricing-table tbody tr:hover {
+  background: #f0fdf4;
+}
+
+.pricing-table td {
+  padding: 14px 16px;
+  font-size: 0.9375rem;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+.pricing-table td:not(:first-child) {
+  text-align: right;
+  font-weight: 700;
+  color: var(--green-700);
+}
+
+.pricing-table__model {
+  font-weight: 600;
+}
+
+.pricing-table__daily,
+.pricing-table__weekly,
+.pricing-table__monthly {
+  font-weight: 700;
+  color: var(--green-700);
+}
+
+/* Nha Trang Services Box */
 .nhatrang-pricing {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .nhatrang-pricing__services {
@@ -2427,83 +2324,6 @@ a.contact-item span strong {
   color: #4ade80;
   font-weight: 700;
   font-size: 0.875rem;
-}
-
-.nhatrang-pricing__table-wrap {
-  background: #fff8e7;
-  border: 2px solid #f59e0b;
-  border-radius: var(--radius);
-  overflow: hidden;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.nhatrang-pricing__table-wrap::before {
-  content: 'Motorbike Options & Rates';
-  display: block;
-  background: #f59e0b;
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.9375rem;
-  padding: 10px 20px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  min-width: max-content;
-}
-
-.nhatrang-pricing__table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9375rem;
-}
-
-.nhatrang-pricing__table thead tr {
-  background: #fef3c7;
-}
-
-.nhatrang-pricing__table th {
-  padding: 12px 20px;
-  text-align: left;
-  font-weight: 700;
-  font-size: 0.8125rem;
-  color: #92400e;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-bottom: 2px solid #f59e0b;
-}
-
-.nhatrang-pricing__th-price {
-  text-align: right !important;
-}
-
-.nhatrang-pricing__table tbody tr {
-  border-bottom: 1px solid #fde68a;
-  transition: background 0.15s;
-}
-
-.nhatrang-pricing__table tbody tr:last-child {
-  border-bottom: none;
-}
-
-.nhatrang-pricing__table tbody tr:hover {
-  background: #fffbeb;
-}
-
-.nhatrang-pricing__table td {
-  padding: 13px 20px;
-  color: #1a1a1a;
-}
-
-.nhatrang-pricing__name {
-  font-weight: 600;
-  font-size: 0.9375rem;
-}
-
-.nhatrang-pricing__table td:not(.nhatrang-pricing__name) {
-  text-align: right;
-  font-weight: 700;
-  color: #15803d;
-  font-size: 1rem;
 }
 
 /* Footer bar dịch vụ - nền xanh lá */
@@ -3212,128 +3032,37 @@ a.contact-item:hover {
     padding: 8px 6px;
   }
 
-  /* Dalat Pricing Table - Mobile */
-  .dalat-pricing {
-    font-size: 0.85rem;
+  /* Pricing Table - Mobile */
+  .pricing-table-wrap {
+    margin-bottom: 24px;
   }
 
-  .dalat-pricing__head {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 12px;
-    font-size: 0.7rem;
-  }
-
-  .dalat-pricing__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px;
-    gap: 8px;
-  }
-
-  .dalat-pricing__name {
-    flex: 1;
-    font-size: 0.875rem;
-    min-width: 0;
-  }
-
-  .dalat-pricing__daily,
-  .dalat-pricing__weekly,
-  .dalat-pricing__monthly {
-    text-align: right;
-    font-size: 0.8125rem;
-    white-space: nowrap;
-  }
-
-  .dalat-pricing__unit {
-    display: none;
-  }
-
-  /* Nha Trang Pricing Table - Mobile */
-  .nhatrang-pricing__table-wrap::before {
-    font-size: 0.8125rem;
-    padding: 8px 12px;
-  }
-
-  .nhatrang-pricing__table {
-    font-size: 0.85rem;
-  }
-
-  .nhatrang-pricing__table th {
-    padding: 10px 12px;
-    font-size: 0.7rem;
-  }
-
-  .nhatrang-pricing__table td {
-    padding: 12px;
-  }
-
-  .nhatrang-pricing__name {
+  .pricing-table {
+    min-width: 500px;
     font-size: 0.875rem;
   }
 
-  .nhatrang-pricing__table td:not(.nhatrang-pricing__name) {
-    font-size: 0.9rem;
+  .pricing-table th {
+    padding: 10px 12px;
+    font-size: 0.75rem;
   }
 
+  .pricing-table td {
+    padding: 12px;
+    font-size: 0.875rem;
+  }
+
+  .pricing-table td:not(:first-child) {
+    font-size: 0.875rem;
+  }
+
+  /* Nha Trang Services - Mobile */
   .nhatrang-pricing__services {
     padding: 16px;
   }
 
   .nhatrang-pricing__services-list {
     gap: 8px 16px;
-  }
-
-  /* Nha Trang table mobile - stack content */
-  .nhatrang-pricing__table {
-    display: block;
-  }
-
-  .nhatrang-pricing__table thead {
-    display: none;
-  }
-
-  .nhatrang-pricing__table tbody {
-    display: block;
-  }
-
-  .nhatrang-pricing__table tbody tr {
-    display: block;
-    padding: 12px;
-    border-bottom: 1px solid #fde68a;
-  }
-
-  .nhatrang-pricing__table tbody tr:last-child {
-    border-bottom: none;
-  }
-
-  .nhatrang-pricing__table td {
-    display: flex;
-    justify-content: space-between;
-    padding: 4px 0;
-  }
-
-  .nhatrang-pricing__table td:first-child {
-    font-weight: 600;
-    font-size: 0.9375rem;
-    color: #1a1a1a;
-    margin-bottom: 8px;
-    padding: 0;
-  }
-
-  .nhatrang-pricing__table td:not(:first-child) {
-    text-align: right;
-    font-weight: 700;
-    color: #15803d;
-    font-size: 0.9rem;
-  }
-
-  .nhatrang-pricing__table td::before {
-    content: attr(data-label);
-    font-weight: 500;
-    color: #92400e;
-    font-size: 0.8125rem;
   }
 
   /* FAQ */

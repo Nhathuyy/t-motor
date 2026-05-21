@@ -542,33 +542,21 @@ function generateCityPricing(city, lang) {
   const dayLabel = isVi ? 'Ngày' : 'Day';
   const weekLabel = isVi ? 'Tuần' : 'Week';
   const monthLabel = isVi ? 'Tháng' : 'Month';
+  const hasMonthly = pricing.motorbikes.some(b => b.monthly_price_k !== null);
 
-  // Generate rows for each bike
+  // Generate table rows for all cities
   const bikeRows = pricing.motorbikes.map(bike => {
     const dailyFormatted = formatPrice(bike.daily_price_k);
     const weeklyFormatted = formatPrice(bike.weekly_price_k);
     const monthlyFormatted = bike.monthly_price_k !== null ? formatPrice(bike.monthly_price_k) : '-';
     
-    // Da Lat style (div blocks)
-    if (city === 'dalat' || city === 'danang') {
-      return `
-            <div class="dalat-pricing__item">
-              <span class="dalat-pricing__name">${bike.model}</span>
-              <div class="dalat-pricing__prices">
-                <span class="dalat-pricing__daily">${dailyFormatted}<span class="dalat-pricing__unit">/${dayLabel.toLowerCase()}</span></span>
-                <span class="dalat-pricing__weekly">${weeklyFormatted}<span class="dalat-pricing__unit">/${weekLabel.toLowerCase()}</span></span>
-                <span class="dalat-pricing__monthly">${monthlyFormatted}<span class="dalat-pricing__unit">/${monthLabel.toLowerCase()}</span></span>
-              </div>
-            </div>`;
-    }
-    
-    // Nha Trang style (table)
     return `
-            <tr>
-              <td class="nhatrang-pricing__name" data-label="Model">${bike.model}</td>
-              <td class="nhatrang-pricing__daily" data-label="${dayLabel}">${dailyFormatted}</td>
-              <td class="nhatrang-pricing__weekly" data-label="${weekLabel}">${weeklyFormatted}</td>
-            </tr>`;
+          <tr>
+            <td class="pricing-table__model">${bike.model}</td>
+            <td class="pricing-table__daily">${dailyFormatted}</td>
+            <td class="pricing-table__weekly">${weeklyFormatted}</td>
+            <td class="pricing-table__monthly">${monthlyFormatted}</td>
+          </tr>`;
   }).join('');
 
   // Service items for Nha Trang
@@ -1238,32 +1226,23 @@ function generatePage(city, lang) {
                 ${cityPricing.serviceItems}
               </ul>
             </div>
-            <div class="nhatrang-pricing__table-wrap">
-              <table class="nhatrang-pricing__table" aria-label="${cityPricing.title}">
-                <thead>
-                  <tr>
-                    <th data-label="Model">Model</th>
-                    <th data-label="${cityPricing.dayLabel}">${cityPricing.dayLabel}</th>
-                    <th data-label="${cityPricing.weekLabel}">${cityPricing.weekLabel}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${cityPricing.bikeRows}
-                </tbody>
-              </table>
-            </div>
           </div>
-          ` : `
-          <div class="dalat-pricing">
-            <div class="dalat-pricing__head">
-              <span class="dalat-pricing__col-name">Model</span>
-              <span class="dalat-pricing__col-price">${cityPricing.dayLabel}</span>
-              <span class="dalat-pricing__col-price">${cityPricing.weekLabel}</span>
-              ${cityPricing.hasMonthlyPrice ? `<span class="dalat-pricing__col-price">${cityPricing.monthLabel}</span>` : ''}
-            </div>
-            ${cityPricing.bikeRows}
+          ` : ''}
+          <div class="pricing-table-wrap">
+            <table class="pricing-table" aria-label="${cityPricing.title}">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>${cityPricing.dayLabel}</th>
+                  <th>${cityPricing.weekLabel}</th>
+                  ${cityPricing.hasMonthly ? '<th>Tháng</th>' : ''}
+                </tr>
+              </thead>
+              <tbody>
+                ${cityPricing.bikeRows}
+              </tbody>
+            </table>
           </div>
-          `}
         </div>
         ` : ''}
 
