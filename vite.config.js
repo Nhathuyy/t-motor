@@ -5,17 +5,22 @@ export default defineConfig({
   publicDir: 'public',
   build: {
     outDir: 'dist',
-    emptyOutDir: false,
+    emptyOutDir: true,
     rollupOptions: {
       input: {
-        landing: 'landing.html',
         main: 'index.html',
-        nhaTrang: 'nha-trang.html',
         daNang: 'da-nang.html',
+        nhaTrang: 'nha-trang.html',
+        dalat: 'dalat.html',
+        en: 'en/index.html',
+        enDaNang: 'en/da-nang.html',
+        enNhaTrang: 'en/nha-trang.html',
+        enDalat: 'en/dalat.html',
       },
     },
   },
   server: {
     port: 3000,
+    open: true,
   },
 });
