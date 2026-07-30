@@ -169,8 +169,8 @@ function generateHowToSchema(city, lang) {
       '@type': 'HowToStep',
       'name': lang === 'vi' ? 'Liên hệ đặt xe' : 'Contact to book',
       'text': lang === 'vi'
-        ? `Gọi hotline 0848 774 775 hoặc nhắn Zalo để đặt xe tại ${cityName}. Chọn ngày, loại xe và địa điểm nhận xe.`
-        : `Call hotline 0848 774 775 or message on Zalo to book in ${cityName}. Choose date, bike type and pickup location.`
+        ? `Gọi hotline 0849771772 hoặc nhắn Zalo để đặt xe tại ${cityName}. Chọn ngày, loại xe và địa điểm nhận xe.`
+        : `Call hotline 0849771772 or message on Zalo to book in ${cityName}. Choose date, bike type and pickup location.`
     },
     {
       '@type': 'HowToStep',
