@@ -621,7 +621,7 @@ function generateFleetGrid(city, lang) {
     return `
               <article class="fleet-card" role="listitem" data-fleet-cat="${category}">
                 <div class="fleet-card__media motor-image">
-                  <img src="${bike.image}" alt="${alt} ${cityName}" width="400" height="300" loading="lazy">
+                  <img src="${bike.image}" alt="${alt} ${cityName}" width="400" height="300" loading="lazy" decoding="async">
                 </div>
                 <div class="fleet-card__body">
                   <h3 class="fleet-card__name">${name}</h3>
