@@ -17,7 +17,7 @@ const distDir = path.join(rootDir, 'dist');
 
 // Import data
 import { cities } from './src/data/cities.js';
-import { fleet, categories, heroBikes, getFleetById } from './src/data/fleet.js';
+import { fleet, categories, heroBikes, getFleetById, getFleetByCity, formatPrice as fleetFormatPrice } from './src/data/fleet.js';
 import { translations, t } from './src/data/translations.js';
 import { formatPrice, getPricingLocalized } from './src/data/pricing/index.js';
 
@@ -169,8 +169,8 @@ function generateHowToSchema(city, lang) {
       '@type': 'HowToStep',
       'name': lang === 'vi' ? 'Liên hệ đặt xe' : 'Contact to book',
       'text': lang === 'vi'
-        ? `Gọi hotline 0849771772 hoặc nhắn Zalo để đặt xe tại ${cityName}. Chọn ngày, loại xe và địa điểm nhận xe.`
-        : `Call hotline 0849771772 or message on Zalo to book in ${cityName}. Choose date, bike type and pickup location.`
+        ? `Gọi hotline 0848771772 hoặc nhắn Zalo để đặt xe tại ${cityName}. Chọn ngày, loại xe và địa điểm nhận xe.`
+        : `Call hotline 0848771772 or message on Zalo to book in ${cityName}. Choose date, bike type and pickup location.`
     },
     {
       '@type': 'HowToStep',
@@ -344,6 +344,7 @@ function generateHeroCarousel(city, lang) {
   const cityData = cities[city];
   const cityName = lang === 'vi' ? cityData.nameVi : cityData.nameEn;
   const trans = translations[lang];
+  const cityKey = cityKeyMap[city] || city.toLowerCase();
 
   const slides = heroBikes.map((bikeId, index) => {
     const bike = getFleetById(bikeId);
@@ -351,7 +352,8 @@ function generateHeroCarousel(city, lang) {
 
     const name = lang === 'vi' ? bike.nameVi : bike.nameEn;
     const alt = lang === 'vi' ? bike.altVi : bike.altEn;
-    const price = formatPrice(bike.prices.daily);
+    const cityBikePrice = bike.prices[cityKey];
+    const price = cityBikePrice ? fleetFormatPrice(cityBikePrice.daily) : '-';
     const isActive = index === 0 ? 'is-active' : '';
     const ariaHidden = index === 0 ? 'false' : 'true';
 
@@ -403,7 +405,7 @@ function generateHeroCarousel(city, lang) {
                   <div class="hero-showcase-bottom">
                     <div class="hero-spec-block">
                       <div class="hero-spec-head">
-                        <span class="hero-spec-code">${bike.prices.daily}K</span>
+                        <span class="hero-spec-code">${cityBikePrice ? cityBikePrice.daily + 'K' : '-'}</span>
                         <span class="hero-spec-tag">${bike.category === 'ga' ? (lang === 'vi' ? 'Xe ga' : 'Scooter') : bike.category === 'adventure' ? 'Adventure' : 'Naked Sport'}</span>
                       </div>
                       <p class="hero-spec-desc">${desc}</p>
@@ -584,6 +586,13 @@ function generateCityPricing(city, lang) {
   };
 }
 
+// Map city slug from build.js to fleet.js city key
+const cityKeyMap = {
+  dalat: 'dalat',
+  nhaTrang: 'nhatrang',
+  daNang: 'danang',
+};
+
 function generateFleetGrid(city, lang) {
   const cityData = cities[city];
   const cityName = lang === 'vi' ? cityData.nameVi : cityData.nameEn;
@@ -592,12 +601,21 @@ function generateFleetGrid(city, lang) {
   const weekLabel = isVi ? 'Tuần' : 'Week';
   const monthLabel = isVi ? 'Tháng' : 'Month';
 
-  const cards = fleet.map((bike) => {
+  // Get city key for fleet.js (normalize to lowercase)
+  const cityKey = cityKeyMap[city] || city.toLowerCase();
+  
+  // Get bikes available for this city
+  const cityBikes = getFleetByCity(cityKey);
+
+  const cards = cityBikes.map((bike) => {
     const name = lang === 'vi' ? bike.nameVi : bike.nameEn;
     const alt = lang === 'vi' ? bike.altVi : bike.altEn;
-    const dailyPrice = formatPrice(bike.prices.daily);
-    const weeklyPrice = formatPrice(bike.prices.weekly);
-    const monthlyPrice = formatPrice(bike.prices.monthly);
+    
+    // Get city-specific prices
+    const cityPrices = bike.prices[cityKey];
+    const dailyPrice = fleetFormatPrice(cityPrices?.daily);
+    const weeklyPrice = fleetFormatPrice(cityPrices?.weekly);
+    const monthlyPrice = fleetFormatPrice(cityPrices?.monthly);
     const category = bike.category;
 
     return `
@@ -1045,7 +1063,15 @@ function generatePage(city, lang) {
 
   <title>${seo.title}</title>
 
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/motors/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/motors/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/motors/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/motors/apple-touch-icon.png">
+  <link rel="manifest" href="/images/motors/site.webmanifest">
+  <meta name="theme-color" content="#22c55e">
+  <meta name="msapplication-TileImage" content="/images/motors/android-chrome-192x192.png">
+  <meta name="msapplication-TileColor" content="#22c55e">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.google-analytics.com">

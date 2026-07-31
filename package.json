@@ -4,9 +4,9 @@
   "description": "T-MOTOR - Motorcycle Rental Service (Da Lat, Nha Trang, Da Nang)",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "serve dist -l 3001",
     "build": "node build.js && cp -r public/images dist/",
-    "preview": "vite preview"
+    "preview": "serve dist -l 3001"
   },
   "keywords": [
     "motorbike rental",
@@ -19,6 +19,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^5.4.0"
+    "serve": "^14.2.6"
   }
 }
