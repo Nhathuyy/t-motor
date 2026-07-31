@@ -2134,7 +2134,7 @@ a.contact-item span strong {
 }
 
 .fleet-tab.is-active {
-  background: #1a1a1a;
+  background: var(--green-500);
   color: #fff;
 }
 
@@ -2167,18 +2167,20 @@ a.contact-item span strong {
   position: relative;
   min-height: 200px;
   padding: 28px 20px;
-  background: #fff;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .fleet-card__media img {
   max-height: 180px;
-  width: auto;
+  width: 100%;
   max-width: 100%;
   object-fit: contain;
   transition: transform 0.35s ease;
+  background: #f1f5f9;
 }
 
 .fleet-card:hover .fleet-card__media img {

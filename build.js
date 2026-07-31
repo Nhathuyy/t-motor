@@ -1223,7 +1223,7 @@ function generatePage(city, lang) {
           </ul>
         </div>
 
-        <div class="fleet-catalog animate-on-scroll" data-fleet-catalog>
+        <div class="fleet-catalog" data-fleet-catalog>
           <p class="fleet-catalog__hint">${fleetGrid.hint}</p>
           <div class="fleet-tabs" role="tablist" aria-label="${lang === 'vi' ? 'Lọc xe theo loại' : 'Filter bikes by type'}">
             <button type="button" class="fleet-tab is-active" role="tab" id="fleet-tab-all" aria-selected="true" aria-controls="fleet-grid-main" data-fleet-filter="all">${fleetGrid.tabs.all}</button>
