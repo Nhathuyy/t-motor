@@ -843,7 +843,7 @@ function generateLocationCards(city, lang) {
       address: null,
       branches: [
         isVi ? 'Chi Nhánh 1: 54 Hồ Xuân Hương, Đà Nẵng' : 'Branch 1: 54 Ho Xuan Huong, Da Nang',
-        isVi ? 'Chi Nhánh 2: 110 Trần Văn Dư, Đà Nẵng' : 'Branch 2: 110 Tran Van Du, Da Nang',
+        isVi ? 'Chi Nhánh 2: 01 Hoa Phượng, Đà Nẵng' : 'Branch 2: 01 Hoa Phuong, Da Nang',
       ],
     },
   ];
