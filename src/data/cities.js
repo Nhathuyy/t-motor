@@ -159,8 +159,8 @@ export const cities = {
       longitude: 108.2022,
     },
     contact: {
-      phone: '+84905830830',
-      phoneDisplay: '0905 830 830',
+      phone: '+84849771772',
+      phoneDisplay: '0849 771 772',
       zalo: '84848774775',
       whatsapp: '84848774775',
       facebook: 'https://www.facebook.com/p/T-Bike-DaNang-D%E1%BB%8Bch-V%E1%BB%A5-Cho-Thu%C3%AA-Xe-M%C3%A1y-%C3%94T%C3%B4-100063470564198/?locale=vi_VN',
@@ -169,12 +169,12 @@ export const cities = {
     seo: {
       vi: {
         title: 'T-MOTOR Đà Nẵng | Cho thuê xe motor Đà Nẵng giá rẻ - Giao xe tận nơi',
-        description: 'T-MOTOR Đà Nẵng - Dịch vụ cho thuê xe máy Đà Nẵng uy tín. Chi nhánh tại 54 Hồ Xuân Hương & 110 Trần Văn Dư. Giao xe tại khách sạn, homestay. Đi Sơn Trà, Hội An, Hải Vân. Đặt xe ngay!',
+        description: 'T-MOTOR Đà Nẵng - Dịch vụ cho thuê xe máy Đà Nẵng uy tín. Chi nhánh tại 54 Hồ Xuân Hương & 01 Hoa Phượng. Giao xe tại khách sạn, homestay. Đi Sơn Trà, Hội An, Hải Vân. Đặt xe ngay!',
         keywords: 'cho thuê xe motor đà nẵng, thuê xe máy đà nẵng, thuê xe motor đà nẵng, thuê xe đà nẵng, thuê xe hội an, thuê xe sơn trà, t-motor đà nẵng, cho thuê xe đà nẵng, rent motorbike da nang, scooter rental da nang',
       },
       en: {
         title: 'T-MOTOR Da Nang | Motorbike Rental Da Nang - Hotel Delivery, Explore Hoi An & Son Tra',
-        description: 'T-MOTOR Da Nang - Reliable motorbike rental service in Da Nang. Branches at 54 Ho Xuan Huong & 110 Tran Van Du. Hotel delivery, explore Hoi An, Son Tra Peninsula, Marble Mountains. Book now!',
+        description: 'T-MOTOR Da Nang - Reliable motorbike rental service in Da Nang. Branches at 54 Ho Xuan Huong & 01 Hoa Phuong. Hotel delivery, explore Hoi An, Son Tra Peninsula, Marble Mountains. Book now!',
         keywords: 'motorbike rental da nang, scooter rental da nang, rent motorbike da nang, hoi an motorbike rental, son tra motorbike hire, t-motor da nang',
       },
     },
