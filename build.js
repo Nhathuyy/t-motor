@@ -821,7 +821,7 @@ function generateLocationCards(city, lang) {
     {
       cityKey: 'nhaTrang',
       cityName: isVi ? 'Nha Trang' : 'Nha Trang',
-      image: '/images/motors/nhatrang-tmotor .jpg',
+      image: '/images/motors/nhatrang-tmotor.jpg',
       address: isVi
         ? '1A Bạch Đằng, Phường Nha Trang, Tỉnh Khánh Hoà'
         : '1A Bach Dang, Nha Trang Ward, Khanh Hoa Province',
@@ -830,7 +830,7 @@ function generateLocationCards(city, lang) {
     {
       cityKey: 'dalat',
       cityName: isVi ? 'Đà Lạt' : 'Da Lat',
-      image: '/images/motors/dalat-tmotor .jpg',
+      image: '/images/motors/dalat-tmotor.jpg',
       address: isVi
         ? 'H35 KQH Phạm Hồng Thái, Xuân Hương - Đà Lạt, Lâm Đồng 670000'
         : 'H35 KQH Pham Hong Thai, Xuan Huong - Da Lat, Lam Dong 670000',
